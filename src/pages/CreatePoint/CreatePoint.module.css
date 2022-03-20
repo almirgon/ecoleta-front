@@ -1,0 +1,31 @@
+.register {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  gap: 2rem;
+}
+
+.register::before {
+  display: block;
+  content: "";
+  background: url("../../assets/coleta.png") no-repeat center center;
+  background-size: cover;
+}
+
+.inputs{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (max-width: 40rem) {
+  .register {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    gap: 0.5rem;
+  }
+  .register::before {
+    display: none;
+  }
+}

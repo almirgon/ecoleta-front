@@ -1,0 +1,31 @@
+.header {
+  box-shadow: 0 2px 3px rgba(30, 60, 90, 0.1);
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  background: white;
+  top: 0px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+.logo {
+  padding: 0.5rem 0;
+}
+
+.registerButton {
+  color: #666;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.registerButton:hover {
+  opacity: 0.8;
+}

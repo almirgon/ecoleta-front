@@ -1,0 +1,10 @@
+.infoHeader{
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .infoHeader{
+    text-align: start;
+  }
+}
