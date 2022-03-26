@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useHistory } from "react-router-dom";
-import styles from "./CreatePoint.module.css";
+import styles from "../CreatePoint/CreatePoint.module.css";
 import Loading from "../../components/Loading";
 import { ToastContainer, toast } from 'react-toastify';
 import { Map, TileLayer, Marker } from "react-leaflet";
