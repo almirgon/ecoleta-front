@@ -2,7 +2,6 @@ import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useHistory } from "react-router-dom";
 import styles from "../CreatePoint/CreatePoint.module.css";
 import Loading from "../../components/Loading";
-import { ToastContainer, toast } from 'react-toastify';
 import { Map, TileLayer, Marker } from "react-leaflet";
 import { LeafletMouseEvent } from "leaflet";
 
@@ -116,8 +115,8 @@ const CreatePoint = () => {
 
     api.post('/', data).then(({ data, status }) => {
       if (status === 201) {
-        toast("Ponto de Coleta cadastrado com sucesso!");
         history.push("/");
+        setLoading(false)
       }
     })
 
@@ -220,15 +219,6 @@ const CreatePoint = () => {
             Cadastrar ponto de coleta
           </button>
         </form>
-        <ToastContainer position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover />
       </div>}
 
     </section>
