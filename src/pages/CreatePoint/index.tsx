@@ -1,10 +1,9 @@
-import React, {useState, useEffect, ChangeEvent, FormEvent} from "react";
-import {useHistory} from "react-router-dom";
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import { useHistory } from "react-router-dom";
 import styles from "./CreatePoint.module.css";
 import Loading from "../../components/Loading";
-
-import {Map, TileLayer, Marker} from "react-leaflet";
-import {LeafletMouseEvent} from "leaflet";
+import { Map, TileLayer, Marker } from "react-leaflet";
+import { LeafletMouseEvent } from "leaflet";
 
 import axios from "axios";
 import api from "../../services/api";
@@ -33,7 +32,7 @@ const CreatePoint = () => {
   const [cities, setCities] = useState<string[]>([]);
   const [selectedUf, setSelectedUf] = useState("0");
   const [selectedCity, setSelectedCity] = useState("0");
-  const [loading,setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([
     0, 0,
   ]);
@@ -42,7 +41,7 @@ const CreatePoint = () => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
-      const {latitude, longitude} = position.coords;
+      const { latitude, longitude } = position.coords;
 
       setInitialPosition([latitude, longitude]);
     });
@@ -89,16 +88,16 @@ const CreatePoint = () => {
   }
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
 
-    setFormData({...formData, [name]: value});
+    setFormData({ ...formData, [name]: value });
   }
 
   async function handleSubmit(event: FormEvent) {
     setLoading(true)
     event.preventDefault();
 
-    const {name, email, whatsapp} = formData;
+    const { name, email, whatsapp } = formData;
     const uf = selectedUf;
     const city = selectedCity;
     const [latitude, longitude] = selectedPosition;
@@ -111,19 +110,20 @@ const CreatePoint = () => {
       city,
       latitude,
       longitude,
+      createdDate: new Date()
     };
 
-    
+    api.post('/', data).then(({ data, status }) => {
+      if (status === 201) {
+        history.push("/");
+      }
+    })
 
-    alert(JSON.stringify(data, null, 2));
-    console.log(data)
-
-    history.push("/");
   }
 
   return (
     <section className={styles.register}>
-      {loading ? <Loading/> :  <div className="forms">
+      {loading ? <Loading /> : <div className="forms">
         <h1 className="title">Cadastro do ponto de coleta</h1>
         <form onSubmit={handleSubmit} autoComplete="off">
           <div className="field">
@@ -161,7 +161,7 @@ const CreatePoint = () => {
           </div>
           <label >Marque o endereço no mapa</label>
           <Map
-            style={{height: "45vh"}}
+            style={{ height: "45vh" }}
             center={initialPosition}
             zoom={15}
             onClick={handleMapClick}
@@ -219,7 +219,7 @@ const CreatePoint = () => {
           </button>
         </form>
       </div>}
-     
+
     </section>
   );
 };
