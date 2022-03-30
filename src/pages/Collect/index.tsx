@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./Collect.module.css";
 import {useLocation} from "react-router-dom";
 import {Map, TileLayer, Marker, Popup} from "react-leaflet";
+import moment from 'moment'
 
 const Collect = () => {
   const location = useLocation();
-  const [collectItem, setCollectItem] = useState<any>({...location.state});
+  const [collectItem, setCollectItem] = useState<any>({});
+  useEffect(() => {setCollectItem({...location.state})},[location.state])
   return (
     <div>
       <>
@@ -15,7 +17,7 @@ const Collect = () => {
             <p>{item?.email}</p>
             <p>{item?.whatsapp}</p>
             <p>{item?.city} - {item?.uf}</p>
-            <p>{item?.city} - {item?.uf}</p>
+            <p>Postado em {moment(item?.createdDate).format('DD/MM/YYYY, h:mm a')}</p>
             </div>
           
             <Map
