@@ -16,7 +16,6 @@ const Collect = () => {
             <p>{item?.whatsapp}</p>
             <p>{item?.city} - {item?.uf}</p>
             <p>{item?.city} - {item?.uf}</p>
-            <p>Postado em: {new Date(item?.createdDate)}</p>
             </div>
           
             <Map
