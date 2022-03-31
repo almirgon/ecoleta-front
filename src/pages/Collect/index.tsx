@@ -14,7 +14,10 @@ const Collect = () => {
             <div className={styles.infoHeader}>  <h1>{item?.name}</h1>
             <p>{item?.email}</p>
             <p>{item?.whatsapp}</p>
-            <p>{item?.city} - {item?.uf}</p></div>
+            <p>{item?.city} - {item?.uf}</p>
+            <p>{item?.city} - {item?.uf}</p>
+            <p>Postado em: {new Date(item?.createdDate})</p>
+            </div>
           
             <Map
             style={{height: "80vh"}}
