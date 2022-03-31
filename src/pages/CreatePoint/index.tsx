@@ -124,7 +124,7 @@ const CreatePoint = () => {
   return (
     <section className={styles.register}>
       {loading ? <Loading /> : <div className="forms">
-        <h1 className="title">Cadastro do ponto de coleta</h1>
+        <h1 className="title">Cadastro de doação</h1>
         <form onSubmit={handleSubmit} autoComplete="off">
           <div className="field">
             <label htmlFor="name">Nome da entidade</label>
@@ -215,7 +215,7 @@ const CreatePoint = () => {
           </div>
 
           <button className="button" type="submit">
-            Cadastrar ponto de coleta
+            Cadastrar
           </button>
         </form>
       </div>}
