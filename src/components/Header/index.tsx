@@ -11,7 +11,7 @@ const Header = () => {
           <Logo />
         </Link>
         <Link className={styles.registerButton} to="/cadastro">
-          Cadastrar Coleta
+          Cadastrar doação
         </Link>
       </nav>
     </header>
