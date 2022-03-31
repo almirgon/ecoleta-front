@@ -40,9 +40,9 @@ const Home = () => {
     <section className={styles.home}>
       {loading ? <Loading/> : <div className="forms">
         <div>
-          <h1 className={styles.title}>Seja bem vindo ao Ecoleta</h1>
+          <h1 className={styles.title}>Seja bem vindo ao Donate</h1>
           <p className={styles.subtitle}>
-            Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.
+            Ajudamos pessoas a encontrarem pontos de doação de forma eficiente.
           </p>
         </div>
         <div className={styles.cards}>{items.map((item: Item, index) => {
